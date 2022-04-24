@@ -14,8 +14,8 @@ import { useAuthContext } from "../contexts/AuthContext";
 import Navigation from "../navigation";
 
 const SignUpScreen = () => {
-  const [username, setUsername] = useState("daele");
-  const [name, setName] = useState("daele");
+  const [username, setUsername] = useState("Daele");
+  const [name, setName] = useState("Daele");
   const [password, setPassword] = useState("");
   const { setUserId } = useAuthContext();
 
@@ -27,12 +27,12 @@ const SignUpScreen = () => {
 
     await client.connectUser(
       {
-        id: username,
-        name: name,
+        id: "david-forero",
+        name: "David",
         image:
           "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/elon.png",
       },
-      client.devToken(username)
+      client.devToken("david-forero")
     );
 
     const channel = client.channel("livestream", "public", { name: "Public" });

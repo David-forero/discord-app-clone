@@ -5,20 +5,22 @@ import useCachedResources from "./src/hooks/useCachedResources";
 import useColorScheme from "./src/hooks/useColorScheme";
 import Navigation from "./src/navigation";
 import React, { useEffect } from "react";
-import { OverlayProvider, Chat, ChannelList, Channel, MessageList, MessageInput } from "stream-chat-expo";
+import { OverlayProvider, Chat, Theme, DeepPartial } from "stream-chat-expo";
 import { StreamChat } from "stream-chat";
 import AuthContext from './src/contexts/AuthContext';
+import { StreamColors } from "./src/constants/Colors";
 
 const API_KEY = "ea2zqy9t4mfu";
 const client = StreamChat.getInstance(API_KEY);
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
+
+  const theme: DeepPartial<Theme> = {
+    colors: StreamColors
+  }
 
   useEffect(() => {
-    
-  
     return () => {
       client.disconnectUser();
     }
@@ -30,18 +32,9 @@ export default function App() {
     return (
       <SafeAreaProvider>
        <AuthContext>
-          <OverlayProvider>
+          <OverlayProvider value={{style: theme}}>
             <Chat client={client}>
-              <Navigation colorScheme={colorScheme} />
-              {/* {!selectedChannel ? (
-                <ChannelList onSelect={onChannelSelected} />
-              ) : (
-                <Channel channel={selectedChannel}>
-                  <Text style={{margin: 50}} onPress={() => setSelectedChannel(null)}>Go Back</Text>
-                  <MessageList/>
-                  <MessageInput/>
-                </Channel>
-              )} */}
+              <Navigation colorScheme="dark" />
             </Chat>
           </OverlayProvider>
           <StatusBar style="light" />
