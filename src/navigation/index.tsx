@@ -49,14 +49,6 @@ function RootNavigator() {
 
   return (
     <Stack.Navigator>
-      {!userId ? (
-        <Stack.Screen
-          name="SignUpScreen"
-          component={SignUpScreen}
-          options={{ headerShown: false }}
-        />
-      ) : (
-        <>
           <Stack.Screen
             name="Root"
             component={DreawerNavigator}
@@ -67,8 +59,7 @@ function RootNavigator() {
             component={NotFoundScreen}
             options={{ title: "Oops!" }}
           />
-        </>
-      )}
+      
     </Stack.Navigator>
   );
 }

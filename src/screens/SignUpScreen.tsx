@@ -23,7 +23,9 @@ const SignUpScreen = () => {
 
   const connectUser = async () => {
     // sign in with your backend and get the user token
-
+    const userData = await Auth.currentAuthenticatedUser();
+    console.log(userData);
+    
 
     await client.connectUser(
       {
