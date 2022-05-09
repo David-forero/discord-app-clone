@@ -20,7 +20,7 @@
           "streamKey": "ea2zqy9t4mfu",
           "streamSecret": "aegwswh3b83twaxxj59gk54ucw6mcvyggpp9a3u4926dnmgsfp2a8bfk6sj3py8e",
           "deploymentBucketName": "amplify-discordapp-staging-231212-deployment",
-          "s3Key": "amplify-builds/getStreamToken-6953544c6f7546777652-build.zip"
+          "s3Key": "amplify-builds/getStreamToken-6d304443554c7264326a-build.zip"
         }
       }
     }
